@@ -1,0 +1,14 @@
+<form action="/forget" method="POST">
+<div class = "container">
+    <div class = "email">
+    Email:<input type="text" name="email" value={{email}}>
+    <span>{{error.email}}</span><br> 
+    </div>
+    <div class = "question">
+        Enter your pet Name:<input type="text" name="question" >
+        <span>{{error.question}}</span><br> 
+    </div>
+<button type="submit">SUBMIT</button>
+</div>
+</form>
+<a href="/login">LOGIN</a>
