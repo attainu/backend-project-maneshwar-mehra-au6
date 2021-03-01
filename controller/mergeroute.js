@@ -1,0 +1,56 @@
+import { check } from "express-validator"
+import sign from "./routes/signup"
+import login from "./routes/login"
+import  path  from 'path';
+import forget from "./routes/forgetpass"
+import changerpass from "./routes/changepass"
+import arth from "./validate"
+const multer=require("multer")
+const express=require("express")
+const route=express.Router()
+
+// use multer
+let diskStroage=multer.diskStorage({
+    destination:(req,file,cb)=>{
+        cb(null,path.join(__dirname,"/../view/upload"))
+    },
+    filename:(req,file,cb)=>{
+    
+        let filename=file.fieldname+"-"+Date.now()+"-"+path.extname(file.originalname)
+        req.filename=filename
+        cb(null,filename)
+    }
+})
+const upload=multer({storage:diskStroage})
+
+
+route.get('/signup',sign.sign.signup)
+route.post('/signin',[upload.single('image'),
+    check("fname","enter the first name").not().isEmpty(),
+    check("lname","enter the lastname").not().isEmpty(),
+    check("email","enter  a valid email").isEmail(),
+    check("password","enter the password minimum length 8").isLength({min:8}),
+    check("question","enter the valid things minimum 3 characte").isLength({min:3})
+],sign.sign.signin)
+route.get('/login',login.login.login)
+route.post('/login',[
+    check("email","enter  a valid email").isEmail(),
+    check("password","enter the correct password").isLength({min:8})
+],login.login.postLogin)
+
+
+route.get('/forget',forget.forget.forget)
+route.post('/forget',[
+    check("email","enter  a valid email").isEmail(),
+    check("question","enter the answere").isLength({min:3})
+]
+,forget.forget.postforget)
+
+route.get('/changepass',arth.arth,changerpass.changepass.changepass)
+
+route.post('/changepass',[
+    check("password","enter the password minimum length 8").isLength({min:8}),
+    check("password2","enter the password minimum length 8").isLength({min:8}),
+],changerpass.changepass.postchangepass)
+
+export default{route}
