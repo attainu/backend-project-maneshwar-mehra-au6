@@ -28,6 +28,7 @@ let login={
             })
         }
         let UserFind=await user.find({email:req.body.email})
+        // console.log(UserFind)
         let errors={email:"enter the correct email id"}
         if(UserFind.length==0){
             return resp.render("login.hbs",{
@@ -41,7 +42,7 @@ let login={
         let match=await bcrypt.compare(req.body.password,UserFind[0].password)
         if(!match){
             let error={password:"enter the correct password"}
-            resp.render("login.hbs",{
+            return resp.render("login.hbs",{
                 layout,
                 error,
                 title:"login",
@@ -50,7 +51,7 @@ let login={
         }
         req.session.userID=UserFind[0]._id
         // console.log(req.session)
-        resp.send("block creation phase")
+        resp.redirect("/createBlog")
     }
 }
 

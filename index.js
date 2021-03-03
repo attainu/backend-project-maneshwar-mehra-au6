@@ -14,8 +14,11 @@ app.use(session({
     secret:"abc",
     resave:true,
     saveUninitialized:true,
-    cookie:{maxAge:360000}
+    cookie:{maxAge:3600000}
 }))
+
+
+// 
 // use of body praser
 app.use(bodyPraser.json())
 app.use(bodyPraser.urlencoded({extended:true}))
@@ -23,7 +26,8 @@ app.use(bodyPraser.urlencoded({extended:true}))
 // setup viwe engine hbs
 app.set("view engine","hbs")
 app.set("views",path.join(__dirname,"view"))
-
+app.use(server.static(path.join(__dirname,"view/upload")))
+app.use(server.static(path.join(__dirname,"view/css")))
 
 
 
@@ -33,6 +37,21 @@ app.use(route.route)
 
 
 
+// page not Found
+app.use((req,res,next)=>{
+    const error=new Error("Page Not found")
+    error.status=404
+    next(error)
+})
+
+
+// throw any error in data base
+app.use((err,req,resp,next)=>{
+    if(err)return resp.json({
+        msg:err.message
+    })
+    next()
+})
 // health check
 app.get('/',(req,resp)=>{
     resp.send("all good")

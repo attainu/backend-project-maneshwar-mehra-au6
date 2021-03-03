@@ -1,27 +1,35 @@
+<link rel="stylesheet" href="./style1.css">
 <form action="/signin" method="POST" enctype="multipart/form-data">
 <div class = "container">
+    <h1>WELCONE TO BLOGIT</h1>
 <div class = "fname">
-    FirstName:<input type="text" name="fname" value={{fname}}>
+    <div class="name">FirstName</div>
+    <input type="text" class="firstname" name="fname" value={{fname}}>
     <span>{{error.fname}}</span><br> 
 </div>
-<div class = "lname">
-    LastName:<input type="text" name="lname" value={{lname}}>
+<div class = "fname">
+    <div class="name">LastName</div>
+    <input type="text" class="firstname" name="lname" value={{lname}}>
     <span>{{error.lname}}</span><br> 
 </div>
-<div class = "email">
-    Email:<input type="text" name="email" value={{email}}>
+<div class = "fname">
+    <div class="name">Email</div>
+    <input type="text" class="firstname" name="email" value={{email}}>
     <span>{{error.email}}</span><br> 
 </div>
-<div class = "image">
-    ProfileImage:<input type="file" name="image" >
+<div class = "fname">
+    <div class="name">ProfileImage</div>
+    <input type="file" class="firstname" name="image" >
     <span>{{error.image}}</span><br> 
 </div>
-<div class = "password">
-    Password:<input type="password" name="password" >
+<div class = "fname">
+    <div class="name">Password</div>
+    <input type="password" class="firstname" name="password" >
     <span>{{error.password}}</span><br> 
 </div>
-<div class = "question">
-    Enter your pet Name:<input type="text" name="question" >
+<div class = "fname">
+    <div class="name">Enter your pet Name</div>
+    <input type="text" class="firstname"  name="question" >
     <span>{{error.question}}</span><br> 
 </div>
 <div class="button">
@@ -31,6 +39,6 @@
 </form>
 
 
-<a href="/login">LOGIN</a>
+<a class = "login" href="/login">LOGIN</a>
 
-<a href="/allblogs">ALLBLOCKS</a>
+<a class = "allblogs" href="/allblogs">ALLBLOCKS</a>

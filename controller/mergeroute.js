@@ -4,7 +4,11 @@ import login from "./routes/login"
 import  path  from 'path';
 import forget from "./routes/forgetpass"
 import changerpass from "./routes/changepass"
+import createBlog from "./routes/createblog"
+import allBlog from "./routes/allblog"
 import arth from "./validate"
+import updateBlog from "./routes/updateBlog"
+import deleteBlog from "./routes/deleteblog"
 const multer=require("multer")
 const express=require("express")
 const route=express.Router()
@@ -15,7 +19,6 @@ let diskStroage=multer.diskStorage({
         cb(null,path.join(__dirname,"/../view/upload"))
     },
     filename:(req,file,cb)=>{
-    
         let filename=file.fieldname+"-"+Date.now()+"-"+path.extname(file.originalname)
         req.filename=filename
         cb(null,filename)
@@ -23,7 +26,18 @@ let diskStroage=multer.diskStorage({
 })
 const upload=multer({storage:diskStroage})
 
+// uploading many files
+let diskStroage2=multer.diskStorage({
+    destination:(req,file,cb)=>{
+        cb(null,path.join(__dirname,"/../view/upload"))
+    },
+    filename:(req,file,cb)=>{
+        let filename=file.fieldname+"-"+Date.now()+"-"+path.extname(file.originalname)
+        cb(null,filename)
+    }
+})
 
+const upload2=multer({storage:diskStroage2})
 route.get('/signup',sign.sign.signup)
 route.post('/signin',[upload.single('image'),
     check("fname","enter the first name").not().isEmpty(),
@@ -52,5 +66,15 @@ route.post('/changepass',[
     check("password","enter the password minimum length 8").isLength({min:8}),
     check("password2","enter the password minimum length 8").isLength({min:8}),
 ],changerpass.changepass.postchangepass)
+route.get('/createBlog',arth.arth,createBlog.createBlog.createBlog)
 
+route.post('/createBlog',arth.arth,upload2.array('image',4),
+check("Blogtitle","enter the block title").not().isEmpty(),
+check("explain","enter somthing").not().isEmpty()
+,createBlog.createBlog.postcreateBlog)
+
+route.get('/allBlogs',arth.arth,allBlog.allBlogs.allBlogs)
+route.get('/updateblog',arth.arth,updateBlog.updateBlog.updateBlog)
+route.post('/updateblog',arth.arth,updateBlog.updateBlog.postupdateBlog)
+route.get('/deleteblog',arth.arth,deleteBlog.deleteBlog.deleteBlog)
 export default{route}

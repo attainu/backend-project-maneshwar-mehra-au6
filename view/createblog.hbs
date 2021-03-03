@@ -1,0 +1,29 @@
+<form action="/createblog" method="POST" enctype="multipart/form-data">
+<div class="container">
+    <div class="Blogtitle">
+    TITLE:<input type="text" name="Blogtitle" value="{{Blogtitle}}">
+    <span>{{error.Blogtitle}}</span>
+    </div>
+    <div class="explain">
+    TITLE:<input type="text" name="explain" value="{{explain}}">
+    <span>{{error.explain}}</span>
+    
+    </div>
+    <div class="radio">
+        MAKE BLOK AS PUBIC OR PRIVATE:<br>
+        <input type="radio" id="private" name="private" value="private">
+        <label for="private">PRIVATE</label><br>
+        <input type="radio" id="public" name="private" value="public">
+        <label for="public">PUBLIC</label><br>
+    </div>
+    <div class="image">
+        
+    IMAGES:<input type="file" name="image" multiple>
+    </div>
+    <button type="submit">SUBMIT</button>
+</div>
+</form>
+
+<a href="/login">LOGOUT</a>
+<a href="/allBlogs">YOUR BLOG</a>
+{{!-- <a href= "/allBlogs">ALLBLOGS</a> --}}

@@ -1,0 +1,34 @@
+    <a href="/createBlog">CREATE BLOG</a>
+    <a href="/login">LOGOUT</a>
+    
+    {{#if data}}
+    {{#each data}}
+    <h1>TITLE:{{this.Blogtitle}}</h1>
+    <h2>ABOUT:{{this.explain}}</h2>
+    <h3>PRIVECY:{{this.private}}</h3>
+    {{#if this.image.length}}
+    IMAGES:{{#each this.image}}<br>
+    <div class= "image">
+    <img src="{{./this.image}}" height="400px" width="400px">
+    <a href="/updatephoto?id={{this._id}}">UPDATEPHOTO</a>
+    <a href="/deletephoto?id={{this._id}}">DELETEPHOTO</a>
+    </div>
+    {{/each}}
+    {{/if}}
+    <a href="/updateblog?id={{this._id}}">UPDATEBLOG</a>
+    <a href="/deleteblog?id={{this._id}}">DELETEBLOG</a>
+    {{/each}}
+    {{else}}
+    <h1>NO BLOCK CREATED YET</h1>
+    {{/if}}
+
+    {{!-- {{#if items}}
+// render items
+
+{{#each items}}
+// render item
+{{/each}}
+
+{{else}}
+// render empty
+{{/if}} --}}

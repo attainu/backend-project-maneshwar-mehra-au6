@@ -1,0 +1,15 @@
+<ul>
+    {{#each data}}
+    <li>
+        NAME:{{this.fname}}+{{ this.lname}}
+    </li>
+    <li>
+        EMAIL:{{this.email}}
+    </li>
+    {{#if this.image }}
+        <img src="{{this.image}}" alt="ProfileImage">
+    {{/if}}
+</ul>
+
+<a  href="/blog">BLOG</a>
+<a href="/logout">LOGOUT</a>
