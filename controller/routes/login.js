@@ -51,7 +51,7 @@ let login={
         }
         req.session.userID=UserFind[0]._id
         // console.log(req.session)
-        resp.redirect("/createBlog")
+        resp.redirect("/publicblog")
     }
 }
 

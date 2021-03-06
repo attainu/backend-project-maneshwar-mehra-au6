@@ -1,44 +1,40 @@
-<link rel="stylesheet" href="./style1.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<h1 style="text-align: center;">WELCONE TO BLOGIT</h1>
+  <style type="text/css">
+  body {
+     background: linear-gradient(to right, #70e1f5, #ffd194);
+    }
+  </style>
+  <div class="d-flex justify-content-center">
 <form action="/signin" method="POST" enctype="multipart/form-data">
-<div class = "container">
-    <h1>WELCONE TO BLOGIT</h1>
-<div class = "fname">
-    <div class="name">FirstName</div>
-    <input type="text" class="firstname" name="fname" value={{fname}}>
-    <span>{{error.fname}}</span><br> 
-</div>
-<div class = "fname">
-    <div class="name">LastName</div>
-    <input type="text" class="firstname" name="lname" value={{lname}}>
-    <span>{{error.lname}}</span><br> 
-</div>
-<div class = "fname">
-    <div class="name">Email</div>
-    <input type="text" class="firstname" name="email" value={{email}}>
-    <span>{{error.email}}</span><br> 
-</div>
-<div class = "fname">
-    <div class="name">ProfileImage</div>
-    <input type="file" class="firstname" name="image" >
+<div class="form-group">
+    <label for="fname">FirstName</label>
+    <input type="text" id="fname" class="form-control" placeholder="FirstName"  name="fname" value={{fname}}>
+    <span style="color: red;">{{error.fname}}</span><br> 
+    <label for="lname">LastName</label>
+    <input type="text" id="lname" class="form-control" placeholder="LastName" name="lname"  value={{lname}}>
+    <span style="color: red;">{{error.lname}}</span><br> 
+    <label for="email">Email</label>
+    <input type="text" id="email" class="form-control" placeholder="email" name="email"  value={{email}}>
+    <span style="color: red;">{{error.email}}</span><br> 
+    <label for="password">Password</label>
+    <input type="password" id="password" class="form-control" placeholder="Password" name="password" >
+    <span style="color: red;">{{error.password}}</span><br> 
+    <label for="pet">PetName</label>
+    <input type="text" id="pet" class="form-control" placeholder="pet name ask on forget password"  name="question" >
+    <span style="color: red;">{{error.question}}</span><br> 
+    <label for="file">ProfileImage</label>
+    <input type="file" id="file" class="form-control" name="image" >
     <span>{{error.image}}</span><br> 
-</div>
-<div class = "fname">
-    <div class="name">Password</div>
-    <input type="password" class="firstname" name="password" >
-    <span>{{error.password}}</span><br> 
-</div>
-<div class = "fname">
-    <div class="name">Enter your pet Name</div>
-    <input type="text" class="firstname"  name="question" >
-    <span>{{error.question}}</span><br> 
-</div>
-<div class="button">
-    <button type="submit">SUBMIT</button>
-</div>
-</div>
+    <div class="form-group row">
+        <div class="d-flex justify-content-center ">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+    </div>
+    </div>
 </form>
-
-
-<a class = "login" href="/login">LOGIN</a>
-
-<a class = "allblogs" href="/allblogs">ALLBLOCKS</a>
+</div>
+<br>
+ <div class="d-flex justify-content-center">
+<a class="btn btn-primary" href="/login">LOGIN</a>
+</div>

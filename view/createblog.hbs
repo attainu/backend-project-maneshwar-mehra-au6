@@ -1,3 +1,9 @@
+
+<a href="/allBlogs">YOUR BLOG</a>
+<a href="/publicblog">PUBLICBLOGS</a>
+<a href="/profile">YOUR PROFILE</a>
+<a href="/login">LOGOUT</a>
+
 <form action="/createblog" method="POST" enctype="multipart/form-data">
 <div class="container">
     <div class="Blogtitle">
@@ -5,7 +11,8 @@
     <span>{{error.Blogtitle}}</span>
     </div>
     <div class="explain">
-    TITLE:<input type="text" name="explain" value="{{explain}}">
+    {{!-- ABOUT:<textarea name="comment" form="usrform" name="explain" value="{{explain}}" rows="8" cols="50"></textarea> --}}
+    ABOUT:<input type="text" name="explain" value="{{explain}}"  style="font-size: 18pt; height: 500px; width:60vw; ">
     <span>{{error.explain}}</span>
     
     </div>
@@ -24,6 +31,5 @@
 </div>
 </form>
 
-<a href="/login">LOGOUT</a>
-<a href="/allBlogs">YOUR BLOG</a>
+
 {{!-- <a href= "/allBlogs">ALLBLOGS</a> --}}

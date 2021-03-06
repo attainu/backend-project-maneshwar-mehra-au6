@@ -1,15 +1,28 @@
-<ul>
-    {{#each data}}
-    <li>
-        NAME:{{this.fname}}+{{ this.lname}}
-    </li>
-    <li>
-        EMAIL:{{this.email}}
-    </li>
-    {{#if this.image }}
-        <img src="{{this.image}}" alt="ProfileImage">
-    {{/if}}
-</ul>
 
-<a  href="/blog">BLOG</a>
-<a href="/logout">LOGOUT</a>
+<a href="/allBlogs">YOUR BLOG</a>
+<a href="/createBlog">CREATE BLOG</a>
+<a href="/publicblog">PUBLICBLOGS</a>
+<a href="/login">LOGOUT</a>
+<br>
+    
+
+NAME:{{fname}} {{lname}}
+<br>
+EMAIL:{{email}}
+<br>
+{{#if image}}
+<img src="./{{image}}" alt="uerpic"width="200px" height="200px">
+{{/if}}
+{{#if image}}
+<a href="/updateprofilpic?id={{_id}}">UPDATE PROFILEPIC</a>
+{{else}}
+<a href="/updateprofilpic?id={{_id}}">ADD PROFILEPIC</a>
+{{/if}}
+
+{{#if image}}
+<a href="/deleteprofilpic?id={{_id}}">DELETE PROFILEPIC</a>
+{{/if}}
+
+<br>
+TOTAL BLOG CREATED:{{data.length}}
+<br>

@@ -1,4 +1,7 @@
+    
     <a href="/createBlog">CREATE BLOG</a>
+    <a href="/publicblog">PUBLICBLOGS</a>
+    <a href="/profile">PROFILE</a>
     <a href="/login">LOGOUT</a>
     
     {{#if data}}
@@ -10,8 +13,8 @@
     IMAGES:{{#each this.image}}<br>
     <div class= "image">
     <img src="{{./this.image}}" height="400px" width="400px">
-    <a href="/updatephoto?id={{this._id}}">UPDATEPHOTO</a>
-    <a href="/deletephoto?id={{this._id}}">DELETEPHOTO</a>
+    <a href="/updatephoto?id={{this._id}}&blogid={{../_id}}">UPDATEPHOTO</a>
+    <a href="/deletephoto?id={{this._id}}&blogid={{../_id}}">DELETEPHOTO</a>
     </div>
     {{/each}}
     {{/if}}

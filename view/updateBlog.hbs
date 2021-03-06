@@ -4,7 +4,8 @@
     TITLE:<input type="text" name="Blogtitle" value="{{Blogtitle}}" readonly>
     </div>
     <div class="about">
-    ABOUT:<input type="text" name="explain" value="{{explain}}">
+    ABOUT:<input type="text" name="explain" value="{{explain}}" style="font-size: 18pt; height: 500px; width:60vw;">
+    <span>{{error.explain}}</span>
     </div>
     <div class="radio">
         MAKE BLOK AS PUBIC OR PRIVATE:<br>
@@ -16,3 +17,5 @@
     <button type="submit">SUBMIT</button>
 </div>
 </form>
+<br>
+<a href="/allBlogs">CANCEL</a>

@@ -9,6 +9,14 @@ import allBlog from "./routes/allblog"
 import arth from "./validate"
 import updateBlog from "./routes/updateBlog"
 import deleteBlog from "./routes/deleteblog"
+import updateblogphoto from "./routes/updateblogphoto"
+import deleteBlogphoto from "./routes/deleteblogphoto"
+import userProfile from "./routes/profile"
+import profilepic from "./routes/profilepicupdate"
+import deleteprofile from "./routes/deleteprofile"
+import publicBlog from"./routes/afterlogin"
+import like from "./routes/like"
+import dislike from "./routes/dislike"
 const multer=require("multer")
 const express=require("express")
 const route=express.Router()
@@ -75,6 +83,19 @@ check("explain","enter somthing").not().isEmpty()
 
 route.get('/allBlogs',arth.arth,allBlog.allBlogs.allBlogs)
 route.get('/updateblog',arth.arth,updateBlog.updateBlog.updateBlog)
-route.post('/updateblog',arth.arth,updateBlog.updateBlog.postupdateBlog)
+route.post('/updateblog',arth.arth,[
+    check("explain","enter somthing").not().isEmpty()
+],updateBlog.updateBlog.postupdateBlog)
 route.get('/deleteblog',arth.arth,deleteBlog.deleteBlog.deleteBlog)
+route.get('/updatephoto',arth.arth,updateblogphoto.updateblogphoto.updateblogphoto)
+route.post('/updatephoto',arth.arth,upload.single('image'),updateblogphoto.updateblogphoto.postupdateblogphoto)
+route.get('/deletephoto',arth.arth,deleteBlogphoto.deleteBlogphoto.deleteBlogphoto)
+route.get('/profile',arth.arth,userProfile.porfile.profile)
+route.get('/updateprofilpic',arth.arth,profilepic.profilepic.profilepic)
+route.post('/updateprofilpic',arth.arth,upload.single('image'),profilepic.profilepic.postprofile)
+route.get('/deleteprofilpic',arth.arth,deleteprofile.deleteprofilpic.deleteprofilpic)
+route.get('/publicblog',arth.arth,publicBlog.afterlogin.afterlogin)
+
+route.get('/like',arth.arth,like.like.like)
+route.get('/dislike',arth.arth,dislike.dislike.dislike)
 export default{route}
