@@ -55,6 +55,6 @@ app.use((err,req,resp,next)=>{
     next()
 })
 // health check
-app.listen(process.env.port||2000,()=>{
+app.listen(process.env.PORT||2000,()=>{
     console.log("listing at port ",process.env.PORT||2000)
 })
