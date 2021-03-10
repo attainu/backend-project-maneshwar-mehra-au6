@@ -17,6 +17,8 @@ import deleteprofile from "./routes/deleteprofile"
 import publicBlog from"./routes/afterlogin"
 import like from "./routes/like"
 import dislike from "./routes/dislike"
+import comment from './routes/comment';
+import deletcomment from "./routes/deletecomment"
 const multer=require("multer")
 const express=require("express")
 const route=express.Router()
@@ -76,14 +78,14 @@ route.post('/changepass',[
 ],changerpass.changepass.postchangepass)
 route.get('/createBlog',arth.arth,createBlog.createBlog.createBlog)
 
-route.post('/createBlog',arth.arth,upload2.array('image',4),
+route.post('/createBlog',arth.arth,upload2.array('image'),
 check("Blogtitle","enter the block title").not().isEmpty(),
 check("explain","enter somthing").not().isEmpty()
 ,createBlog.createBlog.postcreateBlog)
 
 route.get('/allBlogs',arth.arth,allBlog.allBlogs.allBlogs)
 route.get('/updateblog',arth.arth,updateBlog.updateBlog.updateBlog)
-route.post('/updateblog',arth.arth,[
+route.post('/updateblog',arth.arth,upload2.array('image'),[
     check("explain","enter somthing").not().isEmpty()
 ],updateBlog.updateBlog.postupdateBlog)
 route.get('/deleteblog',arth.arth,deleteBlog.deleteBlog.deleteBlog)
@@ -98,4 +100,9 @@ route.get('/publicblog',arth.arth,publicBlog.afterlogin.afterlogin)
 
 route.get('/like',arth.arth,like.like.like)
 route.get('/dislike',arth.arth,dislike.dislike.dislike)
+
+route.get('/comment',arth.arth,comment.comments)
+route.post("/comment",arth.arth,comment.postcomments)
+
+route.get('/deletecomment',arth.arth,deletcomment.deletcomment.deletcomment)
 export default{route}

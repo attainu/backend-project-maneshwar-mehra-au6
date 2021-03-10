@@ -39,6 +39,11 @@ let updateBlog={
         }
     }
     )
+    let bloGS=await blog.find({_id:req.query.id})
+    for(let i=0;i<req.files.length;i++){
+        bloGS[0].image.push({image:req.files[i].filename})
+    }
+    await bloGS[0].save()
     return resp.redirect('/allBlogs')
     }
 }

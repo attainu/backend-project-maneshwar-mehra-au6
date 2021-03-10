@@ -20,7 +20,7 @@ let porfile={
         }])
         // console.log(data[0])
         // return resp.send(data)
-        resp.render("userProfile.hbs",{
+        resp.render("userprofile.hbs",{
             ...data[0],
             layout,
             title:"Profile"

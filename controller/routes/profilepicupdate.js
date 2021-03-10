@@ -2,7 +2,7 @@ const mongoose=require("mongoose")
 import { user } from './../../model/schema/user';
 let profilepic={
     profilepic:(req,resp)=>{
-        console.log(req.query)
+        // console.log(req.query)
         resp.render("updateprofilepic.hbs",{
             id:req.query.id
         })

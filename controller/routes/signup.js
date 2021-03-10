@@ -44,7 +44,7 @@ let sign={
            ...req.body,
            image:req.filename
        })
-       console.log(newUser,req.body)
+    //    console.log(newUser,req.body)
        let salt = await bcrypt.genSalt(10)
        newUser.password=await bcrypt.hash(req.body.password,salt)
        await newUser.save()

@@ -1,11 +1,14 @@
 import  mongoose  from 'mongoose';
 import { blog } from './../../model/schema/blog';
+import  path  from 'path';
+let layout=path.join('/layout/body.hbs')
 let updateblogphoto={
     updateblogphoto:(req,resp)=>{
         // console.log(req.query)
         if(req.query.id){
             return resp.render("updateblogphoto.hbs",{
-                ...req.query
+                ...req.query,layout,
+                title:"UPDATE"
             })
         }
         else{

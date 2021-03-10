@@ -35,7 +35,9 @@ app.use(server.static(path.join(__dirname,"view/css")))
 // route comming 
 app.use(route.route)
 
-
+app.get('/',(req,resp)=>{
+    resp.redirect('/signup')
+})
 
 // page not Found
 app.use((req,res,next)=>{
@@ -53,9 +55,6 @@ app.use((err,req,resp,next)=>{
     next()
 })
 // health check
-app.get('/',(req,resp)=>{
-    resp.send("all good")
-})
 app.listen(process.env.port||2000,()=>{
-    console.log("listing at port ",process.env.port||2000)
+    console.log("listing at port ",process.env.Port||2000)
 })
