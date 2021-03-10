@@ -1,5 +1,5 @@
 const mongoose=require("mongoose")
-let mongoUri='mongodb://localhost:27017/blogs'
+let mongoUri="mongodb+srv://shubham-72:mondob1@cluster0.cieyx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 let connect=async()=>{
     try{
@@ -15,4 +15,4 @@ export default{connect}
 
 
 
-// "mongodb+srv://shubham-72:mondob1@cluster0.cieyx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+// 'mongodb://localhost:27017/blogs'
