@@ -1,5 +1,5 @@
 const mongoose=require("mongoose")
-let mongoUri="mongodb+srv://shubham-72:mondob1@cluster0.cieyx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+let mongoUri="mongodb+srv://maneshwar:admin@cluster0.rxaix.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 let connect=async()=>{
     try{
