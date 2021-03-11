@@ -9,6 +9,7 @@
         <li id="menu-item-40" class="nav-item menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="/profile" class="nav-link">PROFILE</a></li>
         <li id="menu-item-42" class="nav-item  menu-item-42"><a href="/allBlogs" class="nav-link">YOUR BLOG</a></li>
         <li id="menu-item-40" class="nav-item menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="/login" class="nav-link">LOGOUT</a></li>
+         <li id="menu-item-963" class="nav-item menu-item menu-item-type-post_type menu-item-object-page menu-item-963"><a href="/" class="nav-link">HOME</a></li>
       </ul>
     </div>
   </div>
@@ -17,18 +18,19 @@
 {{#if data}}
 <br>
 <h1 style="text-align: center;">PUBLIC BLOGS ARE</h1>
+
 {{#each data}}
 <div class="BLOG">
-  <label>TITLE:</label>
+  <label>Title:</label>
   <div class="x">{{this.Blogtitle}}</div>
 <br>
-<label>ABOUT:</label>
+<label>About:</label>
 <div class="x">{{this.explain}}</div>
 
 <br>
 <div class="d-flex justify-content-between">
 {{#each this.image}}
-<img src="./{{this.image}}" width="200px" height="200px">
+<img class="blogimage"src="./{{this.image}}" width="200px" height="200px">
 {{/each}}
 <br>
 <div class="d-flex align-items-end flex-column bd-highlight mb-3 y">
@@ -36,7 +38,7 @@
 <a class="btn btn-primary" href="/comment?id={{this._id}}">COMMENT</a>
 </div>
 </div>
-<hr>
+
 </div>
 
 {{/each}}

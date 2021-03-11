@@ -9,6 +9,7 @@
         <li id="menu-item-40" class="nav-item menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="/profile" class="nav-link">PROFILE</a></li>
         <li id="menu-item-42" class="nav-item  menu-item-42"><a href="/allBlogs" class="nav-link">YOUR BLOG</a></li>
         <li id="menu-item-40" class="nav-item menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="/login" class="nav-link">LOGOUT</a></li>
+         <li id="menu-item-963" class="nav-item menu-item menu-item-type-post_type menu-item-object-page menu-item-963"><a href="/" class="nav-link">HOME</a></li>
       </ul>
     </div>
   </div>
@@ -17,13 +18,13 @@
     {{#if data}}
     {{#each data}}
     <div class="x">
-    <h1>TITLE:{{this.Blogtitle}}</h1>
-    <h2>ABOUT:{{this.explain}}</h2>
-    <h3>PRIVECY:{{this.private}}</h3>
+    <h1 style="text-align: center;">Title:{{this.Blogtitle}}</h1>
+    <h2 style="text-align: center;">About:{{this.explain}}</h2>
+    <h3 style="text-align: center;">Privecy:{{this.private}}</h3>
     {{#if this.image.length}}
-    <h3>IMAGES:</h3>{{#each this.image}}<br>
+    <h3 style="text-align: center;text-decoration:underline">Images</h3>{{#each this.image}}<br>
     <div class= "image d-flex justify-content-around">
-    <img src="{{./this.image}}" height="200px" width="200px">
+    <img class="blogimage"src="{{./this.image}}" height="200px" width="200px">
     <div class= "d-flex align-items-end flex-column bd-highlight mb-3">
     <a class="v" href="/updatephoto?id={{this._id}}&blogid={{../_id}}">UPDATEPHOTO</a>
     <br>

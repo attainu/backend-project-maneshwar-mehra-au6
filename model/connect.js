@@ -16,3 +16,4 @@ export default{connect}
 
 
 // 'mongodb://localhost:27017/blogs'
+// "mongodb+srv://shubham-72:mondob1@cluster0.cieyx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"

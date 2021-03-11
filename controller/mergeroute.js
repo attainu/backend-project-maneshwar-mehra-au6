@@ -19,6 +19,7 @@ import like from "./routes/like"
 import dislike from "./routes/dislike"
 import comment from './routes/comment';
 import deletcomment from "./routes/deletecomment"
+import  first from "./routes/first"
 const multer=require("multer")
 const express=require("express")
 const route=express.Router()
@@ -105,4 +106,5 @@ route.get('/comment',arth.arth,comment.comments)
 route.post("/comment",arth.arth,comment.postcomments)
 
 route.get('/deletecomment',arth.arth,deletcomment.deletcomment.deletcomment)
+route.get('/',first.blogifind.blogfind)
 export default{route}
