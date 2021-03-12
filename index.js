@@ -29,6 +29,7 @@ app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "view"));
 app.use(server.static(path.join(__dirname, "view/upload")));
 app.use(server.static(path.join(__dirname, "view/css")));
+app.use(server.static(path.join(__dirname, "view/pictures")));
 
 // route comming
 app.use(route.route);
